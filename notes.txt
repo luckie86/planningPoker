@@ -1,0 +1,26 @@
+1. naredi login komponeneto
+2. router
+3. login service
+4. main paig na katerega prideš po loginu
+
+assets/
+..img/
+....logo.png
+
+app/
+..core/ -> tu not so servici ki se uporabljajo v celem appu in so nujni za fukcionalnost
+....api.service.js -> pohendla websocket connection
+....storage.service.js -> pohendla localstorage
+
+..shared/ -> tu not so komponente ki se uporabljajo cez cel app
+....navbar.component
+....footer.component
+
+..login/ -> login domena, tu not so komponente, service itd. za to domeno
+....login.component.js
+....login.component.html
+....login.service.js
+
+..main/
+
+..neki-pod-page/
