@@ -6,13 +6,12 @@
     <title>Planing Poker</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="shortcut icon" type="image/png" href="https://static.thenounproject.com/png/1259530-200.png"/>
-    <link rel="stylesheet" href="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/navbar.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/footer.css"> 
 </head>
-<body>
+<body>                  
     
     <ui-view></ui-view>
 
@@ -23,10 +22,15 @@
     <script src="/app/app.module.js"></script>
     <script src="/app/core/CoreModule.js"></script>
     <script src="/app/main/MainModule.js"></script>
+    <script src="/app/main/main.component.js"></script>
+    <script src="/app/main/mainNav.js"></script>
     <script src="/app/shared/SharedModule.js"></script>
+    <script src="/app/shared/footer/footer.component.js"></script>
+    <script src="/app/shared/navbar/navbar.component.js"></script>
     <script src="/app/login/LoginModule.js"></script>
     <script src="/app/login/login.component.js"></script>
-    <script src="/app/login/login.service.js"></script>
     <script src="/app/login/loginNav.js"></script>
+    <script src="/app/login/login.service.js"></script>
+    <script src="/app/core/webSocketService.js"></script>
 </body>
 </html>

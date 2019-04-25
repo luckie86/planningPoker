@@ -12,7 +12,7 @@
         .module('LoginModule')
         .component('loginComponent', loginComponent);
 
-    function loginController() {
+    function loginController(loginService) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
@@ -22,11 +22,20 @@
         //////////////////////////////
         
         function $onInit () {
-
+            
         }
 
         function login () {
-            
+            switch ($ctrl.userName) {
+                case "Janez":
+                    loginService.login($ctrl.userName);                    
+                    break;
+                case "Mojca":
+                    loginService.login($ctrl.userName);                    
+                    break;
+                default:
+                    break;
+            }
         }
 
     }
