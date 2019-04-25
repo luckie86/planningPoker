@@ -4,7 +4,7 @@
     var mainComponent = {
         bindings: {
         },
-        templateUrl: 'app/main/main.html',
+        templateUrl: 'app/main/main-componenet/main.html',
         controller: mainController
     };
 

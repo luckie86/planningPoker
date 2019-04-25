@@ -4,7 +4,7 @@
     var loginComponent = {
         bindings: {
         },
-        templateUrl: 'app/login/login.html',
+        templateUrl: 'app/login/login-componenet/login.html',
         controller: loginController
     };
 
