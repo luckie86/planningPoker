@@ -24,3 +24,10 @@ app/
 ..main/
 
 ..neki-pod-page/
+
+
+1. Naredi ostale page po vrsti kot gre naloga;
+2. naredi vse file kebab case;
+--login.component, core.module., main.nav.js
+
+create-session.component.js

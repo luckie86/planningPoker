@@ -35,7 +35,7 @@
             }
 
         }
-
         
+        // returnaj websoket tako da ga lahko druga komponenta klice ( return weBsocket) po kreaciji in open
 
 })();

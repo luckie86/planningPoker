@@ -28,7 +28,8 @@
         function login () {
             switch ($ctrl.userName) {
                 case "Janez":
-                    loginService.login($ctrl.userName);                    
+                    loginService.login($ctrl.userName);
+                    // zamenjaj z routerjem                    
                     break;
                 case "Mojca":
                     loginService.login($ctrl.userName);                    
