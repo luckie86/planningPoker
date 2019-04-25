@@ -4,7 +4,7 @@
     var footerComponent = {
         bindings: {
         },
-        templateUrl: 'app/shared/footer/footer.html',
+        templateUrl: 'app/shared/footer-component/footer.html',
         controller: footerController
     };
 

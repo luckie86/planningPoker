@@ -4,7 +4,7 @@
     var navbarComponent = {
         bindings: {
         },
-        templateUrl: 'app/shared/navbar/navbar.html',
+        templateUrl: 'app/shared/navbar-component/navbar.html',
         controller: navbarController
     };
 
