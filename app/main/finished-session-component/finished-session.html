@@ -1,10 +1,12 @@
+<navbar-component></navbar-component>
+
 <div class="container">
     <form>
         <div class="form-row">
-            <div class="col-6">
+            <div class="col">
                 <input type="text" class="form-control" placeholder="My session name...">
             </div>
-            <div class="col-2">
+            <div class="col">
                 <div class="form-group">
                     <select class="form-control">
                         <option>Fibonacci</option>
@@ -15,14 +17,40 @@
             </div>
         </div>
     </form>
-    <div class="form-group">
-        <a href="#">+ Add (another) user story</a>
+
+    <hr>
+
+    <h4 class="text-center">All estimations made. Well done!</h4>
+
+    <p class="text-center">
+        All participants have estimated all user stories. <br>
+        You can run the session again and apply new estimations to the current medians <br>
+        or discard the current estimations and start anew.
+    </p>
+
+    <div class="list-inline text-center">
+        <a 
+            href="#" 
+            class="list-inline-item"
+        >
+            Run again
+        </a> 
+        <p class="list-inline-item">or</p>
+        <a 
+            href="#"
+            class="list-inline-item"
+        >
+            Run again fresh
+        </a>
     </div>
+    <hr>
+
+    <a href="#">+ Add another story</a>
 
     <div class="card">
         <div class="row">
             <div class="col-10">
-                <p>
+                <p> 
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Veritatis nihil nam illo voluptatibus! Debitis minus, 
                     quis officiis repellat earum nemo exercitationem officia error 
@@ -30,9 +58,7 @@
                 </p>
             </div>
             <div class="col-2">
-                <button type="button" class="close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h4>XL</h4>
             </div> 
         </div>   
     </div>
@@ -40,7 +66,7 @@
     <div class="card">
         <div class="row">
             <div class="col-10">
-                <p>
+                <p> 
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Veritatis nihil nam illo voluptatibus! Debitis minus, 
                     quis officiis repellat earum nemo exercitationem officia error 
@@ -48,21 +74,27 @@
                 </p>
             </div>
             <div class="col-2">
-                <button type="button" class="close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <i class="fas fa-question fa-2x"></i>
             </div> 
         </div>   
     </div>
 
-    <hr>
-
-    <div class="text-center">
-        <button class="btn btn-primary">Start</button>
+    <div class="card">
+        <div class="row">
+            <div class="col-10">
+                <p> 
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Veritatis nihil nam illo voluptatibus! Debitis minus, 
+                    quis officiis repellat earum nemo exercitationem officia error 
+                    quod quisquam dignissimos deserunt praesentium possimus tempore
+                </p>
+            </div>
+            <div class="col-2">
+                <i class="fas fa-exclamation-triangle fa-2x"></i>
+            </div> 
+        </div>   
     </div>
-    
-    <h6 class="text-center">This will start your session and allow participants to join</h3>
-    
-    <hr>
 
 </div>
+
+<footer-component></footer-component>
