@@ -4,22 +4,36 @@
     <form>
         <div class="form-row">
             <div class="col-6">
-                <input type="text" class="form-control" placeholder="My session name...">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="My session name..." 
+                    ng-model="$ctrl.sessionName"
+                >
             </div>
             <div class="col-2">
                 <div class="form-group">
-                    <select class="form-control">
-                        <option>Fibonacci</option>
-                        <option>T-Shirt</option>
-                        <option>Gamer</option>
+                    <select 
+                        class="form-control"
+                        ng-options="item as item.label for item in $ctrl.sessionScale track by item.id" 
+                        ng-model="$ctrl.selected"
+                    >
+                    <option value="">Select session scale</option>
                     </select>
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <button 
+                type="submit" 
+                class="btn"
+                ng-click="$ctrl.addUserStory()"
+            >
+                + Add user story
+            </button>
+        </div>
     </form>
-    <div class="form-group">
-        <a href="#">+ Add (another) user story</a>
-    </div>
+    
 
     <div class="card">
         <div class="row">

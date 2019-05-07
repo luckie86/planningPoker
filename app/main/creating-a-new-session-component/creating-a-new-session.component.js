@@ -17,6 +17,21 @@
 
         $ctrl.$onInit = $onInit;
 
+        $ctrl.sessionScale = [{
+            id: 1,
+            label: 'Fibonacci',
+            subItem: { name: 'Fibonacci' }
+        }, {
+            id: 2,
+            label: 'T-Shirt',
+            subItem: { name: 'T-Shirt' }
+        }, {
+            id: 3,
+            label: 'Gamer',
+            subItem: { name: 'Gamer' }
+        }];
+
+        $ctrl.addUserStory = addUserStory;
         
         //////////////////////////////
         
@@ -24,6 +39,10 @@
             
         }
 
+        function addUserStory () {
+            console.log($ctrl.sessionName, $ctrl.selected.label);
+        }
+    
     }
 
 })();
