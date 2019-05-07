@@ -10,13 +10,10 @@
             var URL = "ws://dlabs.si:1234";
             var webSocket = new WebSocket(URL);
         
-            webSocket.onopen = function (event) {
-                console.log("OPEN ", event)
-                webSocket.onmessage = function (event) {
-                    console.log("on message",event);
-                }
+            function getSocket () {
+                return webSocket;
             }
-
+            
             function send (data) {
                     var json = JSON.stringify(data);
                     console.log("Event Data:", data);
@@ -31,7 +28,8 @@
             }
 
             return {
-                send: send
+                send: send,
+                getSocket: getSocket
             }
 
         }
