@@ -10,23 +10,26 @@
             var URL = "ws://dlabs.si:1234";
             var webSocket = new WebSocket(URL);
         
+            
             function getSocket () {
                 return webSocket;
             }
-            
+                
             function send (data) {
-                    var json = JSON.stringify(data);
-                    console.log("Event Data:", data);
-                    switch (data.command) {
-                        case "login":
-                            webSocket.send(json);
-                            break;
-                        case "logout":
-                            webSocket.close()
-                            break;
-                    }
+                var json = JSON.stringify(data);
+                console.log("Event Data:", data);
+                switch (data.command) {
+                    case "login":
+                        webSocket.send(json);
+                        break;
+                    case "create session":
+                        webSocket.send(json);
+                        break;
+                    case "logout":
+                        webSocket.close()
+                        break;
+                }
             }
-
             return {
                 send: send,
                 getSocket: getSocket
