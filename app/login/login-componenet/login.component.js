@@ -12,7 +12,7 @@
         .module('LoginModule')
         .component('loginComponent', loginComponent);
 
-    function loginController(loginService, webSocketService) {
+    function loginController(loginService, webSocketService, $state) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
@@ -30,7 +30,7 @@
             webSocketService.getSocket().addEventListener("message", function (event) {
                 var parsed = JSON.parse(event.data);   
                 if(parsed.command === 'login') {
-                    window.location.href = "/#!/main";
+                    $state.go("main");
                 }
             })       
         }

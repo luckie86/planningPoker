@@ -35,3 +35,6 @@ create-session.component.js
 
 odstrani nav iz poddirektorijev v main
 poveži vse z uisref
+
+Naredi create session (z websocket):
+command: payload
