@@ -12,7 +12,7 @@
         .module('LoginModule')
         .component('loginComponent', loginComponent);
 
-    function loginController(loginService, webSocketService, $state) {
+    function loginController(userService, webSocketService, $state) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
@@ -38,13 +38,13 @@
         function login () {
             switch ($ctrl.userName) {
                 case "Janez":
-                webSocketService.send({ command: "login", payload: { username : "Janez"}});
-                    // zamenjaj z routerjem                    
-                    break;
                 case "Mojca":
-                webSocketService.send({ command: "login", payload: { username : "Mojca"}});                
+                    webSocketService.send({ command: "login", payload: { username : $ctrl.userName}});
+                    userService.setUser($ctrl.userName);
+                    $state.go("main");                       
                     break;
                 default:
+                    $state.go("login");
                     break;
             }
         }

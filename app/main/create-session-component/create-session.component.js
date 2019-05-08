@@ -12,12 +12,14 @@
         .module('MainModule')
         .component('createSessionComponent', createSessionComponent);
 
-    function createSessionController (webSocketService, $state) {
+    function createSessionController (webSocketService, userService, $state) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
 
         $ctrl.createSession = createSession;
+
+        $ctrl.userName = userService.getUser();
 
         //////////////////////////////
         
@@ -33,7 +35,7 @@
 
         function createSession () {
                 
-            webSocketService.send({ command: "create session", payload: { username : "Janez"}});
+            webSocketService.send({ command: "create session", payload: { username : $ctrl.userName}});
         }
 
     }

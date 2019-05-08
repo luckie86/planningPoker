@@ -38,3 +38,13 @@ poveži vse z uisref
 
 Naredi create session (z websocket):
 command: payload
+
+popravi login da bo samo en klic servicev
+
+Naredi resolveznotraj main.nav in preveri če je user loginan:
+if empty string ni, ce je string je loginan
+
+
+1. onmessage ki bo pohendlal ta create session; (znotraj create session)
+2. my sessions page posluša v onmessage spremembo in ustvari arraj, skoyi katerega gremo z ng repeat
+
