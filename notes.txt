@@ -39,6 +39,7 @@ poveži vse z uisref
 Naredi create session (z websocket):
 command: payload
 
+
 popravi login da bo samo en klic servicev
 
 Naredi resolveznotraj main.nav in preveri če je user loginan:
@@ -47,4 +48,19 @@ if empty string ni, ce je string je loginan
 
 1. onmessage ki bo pohendlal ta create session; (znotraj create session)
 2. my sessions page posluša v onmessage spremembo in ustvari arraj, skoyi katerega gremo z ng repeat
+
+v create session pošlješ spodnji objekt nato v mysessions daš event listener za create session ki sprejembe ta array in ga prikaže.
+
+{
+    command: "start_session",
+    payload: {
+        name: "asdasd",
+        nacin_ocenjevanja: "fibonacci",
+        stories: [
+            'story1',
+            'story2',
+            'story3',
+        ]
+    }
+}
 

@@ -20,9 +20,8 @@
                 console.log("Event Data:", data);
                 switch (data.command) {
                     case "login":
-                        webSocket.send(json);
-                        break;
                     case "create session":
+                    case "creating session":
                         webSocket.send(json);
                         break;
                     case "logout":
@@ -37,6 +36,5 @@
 
         }
         
-        // returnaj websoket tako da ga lahko druga komponenta klice ( return weBsocket) po kreaciji in open
 
 })();

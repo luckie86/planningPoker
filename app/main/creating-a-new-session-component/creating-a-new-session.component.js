@@ -22,34 +22,50 @@
         $ctrl.sessionScale = [{
             id: 1,
             label: 'Fibonacci',
-            subItem: { name: 'Fibonacci' }
         }, {
             id: 2,
             label: 'T-Shirt',
-            subItem: { name: 'T-Shirt' }
         }, {
             id: 3,
             label: 'Gamer',
-            subItem: { name: 'Gamer' }
         }];
 
         $ctrl.addUserStory = addUserStory;
+
+        $ctrl.arrayOfSessions = [];
+
+        $ctrl.deleteUserStory = deleteUserStory;
         
         //////////////////////////////
         
         function $onInit () {
-            
-            webSocketService.getSocket().addEventListener("message", function (event) {
-                var parsed = JSON.parse(event.data);   
-                if(parsed.command === "create session") {
-                    $state.go("mySessions");
-                }
-            })    
+            webSocketService.getSocket().addEventListener('message', function (event) {
+                console.log("message", event);
+            })
         }
 
         function addUserStory () {
+                        
+            webSocketService.send(
+                { command: "creating session", 
+                payload: {
+                    userName: $ctrl.userName, 
+                    sessionName: $ctrl.sessionName, 
+                    selected: $ctrl.selected.label,
+                    status : "Draft"
+                }
+            });
 
-            webSocketService.send({ command: "create session", payload: {userName: $ctrl.userName, sessionName: $ctrl.sessionName, selected: $ctrl.selected.label}});
+            $ctrl.arrayOfSessions.push({
+                userName: $ctrl.userName, 
+                sessionName: $ctrl.sessionName, 
+                selected: $ctrl.selected.label,
+                status : "Draft" 
+            });
+        }
+
+        function deleteUserStory (id) {
+            $ctrl.arrayOfSessions.splice(id,1);
         }
     
     }

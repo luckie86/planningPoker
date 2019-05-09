@@ -46,7 +46,16 @@
         var mySessions = {
             name: "mySessions",
             url: "/mysessions",
-            component: "mySessionsComponent"
+            component: "mySessionsComponent",
+            resolve: {
+                mySessions: function (userService) {
+                    if (userService.getUser() === "") {
+                        return null;
+                    } else {
+                        return userService.getUser();
+                    }
+                }
+            }
         }
 
         var noSessions = {
