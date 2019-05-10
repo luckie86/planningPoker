@@ -39,7 +39,7 @@
             switch ($ctrl.userName) {
                 case "Janez":
                 case "Mojca":
-                    webSocketService.send({ command: "login", payload: { username : $ctrl.userName}});
+                    webSocketService.send({ command: "login", payload: { userName : $ctrl.userName}});
                     userService.setUser($ctrl.userName);
                     $state.go("main");                       
                     break;

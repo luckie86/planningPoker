@@ -38,9 +38,9 @@
     <div class="card" ng-repeat="(key, value) in $ctrl.arrayOfSessions">
         <div class="row">
             <div class="col-10">
-                <p>
+                <textarea class="col-10">
                     {{value.sessionName}}
-                </p>
+                </textarea>
             </div>
             <div class="col-2">
                 <button type="button" class="close" ng-click="$ctrl.deleteUserStory(key)">

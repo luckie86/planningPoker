@@ -2,4 +2,14 @@
 
 <h4 class="text-center">Welcome to Planning Poker</h4>
 
+<br>
+
+<h6 class="text-center"><a ui-sref="mySessions">Click here to view available sessions</a></h6>
+
+<br>
+
+<div ng-if="$ctrl.isAdmin">
+    <h6 class="text-center"><a ui-sref="createSession">Or create a session</a></h6>
+</div>
+
 <footer-component></footer-component>

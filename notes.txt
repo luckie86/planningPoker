@@ -68,3 +68,5 @@ v create session pošlješ spodnji objekt nato v mysessions daš event listener 
 Dodaj textarea v story;
 redirectaj na page da se ljudje joinajo
 
+v available session pošlji tudi userja, zato da ves kdo je kreiral sejo (moderator)
+if moderator then gre v my session, if user then available session
