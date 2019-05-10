@@ -35,19 +35,21 @@
         $ctrl.arrayOfSessions = [];
 
         $ctrl.deleteUserStory = deleteUserStory;
+
+        $ctrl.startSession = startSession;
         
         //////////////////////////////
         
         function $onInit () {
             webSocketService.getSocket().addEventListener('message', function (event) {
-                console.log("message", event);
+                
             })
         }
 
         function addUserStory () {
                         
             webSocketService.send(
-                { command: "creating session", 
+                { command: "creating_session", 
                 payload: {
                     userName: $ctrl.userName, 
                     sessionName: $ctrl.sessionName, 
@@ -68,6 +70,21 @@
             $ctrl.arrayOfSessions.splice(id,1);
         }
     
-    }
+        function startSession () {
+
+            webSocketService.send(
+                { command: "create_session", 
+                payload: {
+                    userName: $ctrl.userName, 
+                    sessionName: $ctrl.sessionName, 
+                    selected: $ctrl.selected.label,
+                    status : "Draft",
+                    stories: $ctrl.arrayOfSessions
+                }
+            });
+            $state.go("mySessions");
+        }
+
+     }
 
 })();

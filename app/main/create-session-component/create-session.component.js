@@ -27,7 +27,7 @@
             
             webSocketService.getSocket().addEventListener("message", function (event) {
                 var parsed = JSON.parse(event.data);   
-                if(parsed.command === "create session") {
+                if(parsed.command === "create_a_session") {
                     $state.go("creatingANewSession");
                 }
             })       
@@ -35,7 +35,7 @@
 
         function createSession () {
                 
-            webSocketService.send({ command: "create session", payload: { username : $ctrl.userName}});
+            webSocketService.send({ command: "create_a_session", payload: { username : $ctrl.userName}});
         }
 
     }

@@ -29,7 +29,7 @@
                 class="btn"
                 ng-click="$ctrl.addUserStory()"
             >
-                + Add user story
+                + Add <span ng-if="$ctrl.arrayOfSessions.length>=1">another </span> user story
             </button>
         </div>
     </form>
@@ -56,7 +56,7 @@
         <hr>
 
         <div class="text-center">
-            <button class="btn btn-primary">Start</button>
+            <button class="btn btn-primary" ng-click="$ctrl.startSession()">Start</button>
         </div>
         
         <h6 class="text-center">This will start your session and allow participants to join</h3>

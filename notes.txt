@@ -49,6 +49,7 @@ if empty string ni, ce je string je loginan
 1. onmessage ki bo pohendlal ta create session; (znotraj create session)
 2. my sessions page posluša v onmessage spremembo in ustvari arraj, skoyi katerega gremo z ng repeat
 
+
 v create session pošlješ spodnji objekt nato v mysessions daš event listener za create session ki sprejembe ta array in ga prikaže.
 
 {
@@ -63,4 +64,7 @@ v create session pošlješ spodnji objekt nato v mysessions daš event listener 
         ]
     }
 }
+
+Dodaj textarea v story;
+redirectaj na page da se ljudje joinajo
 

@@ -20,8 +20,9 @@
                 console.log("Event Data:", data);
                 switch (data.command) {
                     case "login":
-                    case "create session":
-                    case "creating session":
+                    case "create_session":
+                    case "create_a_session":
+                    case "creating_session":
                         webSocket.send(json);
                         break;
                     case "logout":
