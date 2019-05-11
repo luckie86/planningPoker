@@ -9,20 +9,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><a href="#">Authorisation feature</a></td>
-            <td>fibonnacci</td>
-            <td>moderated by <span>beno rudolf</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Redesign of project37</a></td>
-            <td>T-shirt</td>
-            <td>moderated by <span>miha1337</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Moonpower filtering Epic</a></td>
-            <td>card deck</td>
-            <td>moderated by <span>Peter Pohar</span></td>
+          <tr ng-repeat="session in $ctrl.arrayOfSessions">
+            <td><a href="#">{{session.sessionName}}</a></td>
+            <td>{{session.selected}}</td>
+            <td>moderated by: <span>{{session.userName}}</span></td>
           </tr>
         </tbody>
     </table>
