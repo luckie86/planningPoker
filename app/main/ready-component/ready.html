@@ -1,29 +1,40 @@
 <navbar-component></navbar-component>
 
-<h4 class="text-center">My brand new session for estimating awesome features</h4>
+<div ng-if="!$ctrl.listOfUsers.length">
+    <waiting-component></waiting-component>
+</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col text-center">
-            <i class="fas fa-user"></i>
-            <p>Pete</p>
-        </div>
-        <div class="col text-center">
-            <i class="fas fa-user"></i>
-            <p>Goblin 18</p>
-        </div>
-        <div class="col text-center">
-            <i class="fas fa-user"></i>
-            <p>Jaka</p>
+<div ng-if="$ctrl.listOfUsers.length">
+
+    <h4 class="text-center">My brand new session for estimating awesome features</h4>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-center" ng-repeat="user in $ctrl.listOfUsers">
+                <i class="fas fa-user"></i>
+                <p ng-if="!user.isAdmin">{{user.userName}}</p>
+                <p ng-if="user.isAdmin">Moderator</p>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="text-center">
-    <button type="submit" class="btn btn-primary">Go</button>
-</div>
+    <div ng-if="$ctrl.listOfUsers.length && user.isAdmin">
+    
+        <div class="text-center">
+            <button 
+                type="submit" 
+                class="btn btn-primary"
+                ng-click="$ctrl.startSession()"
+            >
+                Go
+            </button>
+        </div>
 
-<p class="text-center">You can wait for more participants or start. 
-    The session will become unavailable to join during the process</p>
+        <p class="text-center">You can wait for more participants or start. 
+            The session will become unavailable to join during the process</p>
+
+    </div>    
+
+</div> 
 
 <footer-component></footer-component>

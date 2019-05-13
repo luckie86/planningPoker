@@ -12,16 +12,34 @@
         .module('MainModule')
         .component('readyComponent', readyComponent);
 
-    function readyController () {
+    function readyController (webSocketService, $scope) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
 
+        $ctrl.listOfUsers = [];
+
+        $ctrl.startSession = startSession;
         
         //////////////////////////////
         
         function $onInit () {
             
+            webSocketService.getSocket().addEventListener('message', function (event) {
+                var parsed = JSON.parse(event.data);
+                if (parsed.payload) {
+                    if(parsed.payload.isAdmin) {
+                        $ctrl.listOfUsers.push({userName: parsed.payload.userName, isAdmin: true});
+                    } else {
+                        $ctrl.listOfUsers.push({userName: parsed.payload.userName, isAdmin: false});
+                    }
+                    $scope.$apply();
+                }
+            })
+        }
+
+        function startSession () {
+
         }
 
     }

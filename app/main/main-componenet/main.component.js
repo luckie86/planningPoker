@@ -12,7 +12,7 @@
         .module('MainModule')
         .component('mainComponent', mainComponent);
 
-    function mainController(webSocketService) {
+    function mainController(webSocketService, $scope) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
@@ -24,11 +24,12 @@
         function $onInit () {
             webSocketService.getSocket().addEventListener("message", function (event) {
                 var parsed = JSON.parse(event.data);   
-                if(parsed.payload.userName === 'Mojca' || parsed.payload.userName === "Janez") {
+                if(parsed.payload.isAdmin) {
                     $ctrl.isAdmin = true;
                 } else {
                     $ctrl.isAdmin = false;
                 }
+                $scope.$apply()
             })       
         }
 

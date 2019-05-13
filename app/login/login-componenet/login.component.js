@@ -25,26 +25,21 @@
 
             webSocketService.getSocket().addEventListener('open', function (event) {
                 console.log("Opened", event);
-            })
-
-            webSocketService.getSocket().addEventListener("message", function (event) {
-                var parsed = JSON.parse(event.data);   
-                if(parsed.command === 'login') {
-                    $state.go("main");
-                }
-            })       
+            })    
         }
 
         function login () {
             switch ($ctrl.userName) {
                 case "Janez":
                 case "Mojca":
-                    webSocketService.send({ command: "login", payload: { userName : $ctrl.userName}});
+                    webSocketService.send({ command: "login", payload: { userName : $ctrl.userName, isAdmin: true }});
                     userService.setUser($ctrl.userName);
                     $state.go("main");                       
                     break;
                 default:
-                    $state.go("login");
+                    webSocketService.send({ command: "login", payload: { userName : $ctrl.userName, isAdmin: false }});
+                    userService.setUser($ctrl.userName);
+                    $state.go("main");
                     break;
             }
         }
