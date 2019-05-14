@@ -27,7 +27,8 @@
             
             webSocketService.getSocket().addEventListener('message', function (event) {
                 var parsed = JSON.parse(event.data);
-                if (parsed.payload) {
+                console.log(parsed);
+                if (parsed.command === "login") {
                     if(parsed.payload.isAdmin) {
                         $ctrl.listOfUsers.push({userName: parsed.payload.userName, isAdmin: true});
                     } else {
