@@ -70,3 +70,7 @@ redirectaj na page da se ljudje joinajo
 
 v available session pošlji tudi userja, zato da ves kdo je kreiral sejo (moderator)
 if moderator then gre v my session, if user then available session
+
+naredi textarea delujoč torej da ga pushne v object in shrani ter disabla textarea
+status delujoč : torej draft...
+session id random number

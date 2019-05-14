@@ -17,8 +17,16 @@
                 currentUser = user;
             }
 
+            function isAdmin (user) {
+                if (user === "Mojca" || user === "Janez") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
 
             return {
+                isAdmin: isAdmin,
                 getUser: getUser,
                 setUser: setUser
             }

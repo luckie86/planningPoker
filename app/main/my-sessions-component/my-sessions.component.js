@@ -17,7 +17,7 @@
 
         $ctrl.$onInit = $onInit;
 
-        $ctrl.arrayOfSessions = [];
+        $ctrl.arrayOfStories = [];
 
         //////////////////////////////
         
@@ -27,7 +27,7 @@
                 var parsed = JSON.parse(event.data);   
                 if(parsed.command === 'create_session') {
                     parsed.payload.stories.forEach(story => {
-                        $ctrl.arrayOfSessions.push(story);
+                        $ctrl.arrayOfStories.push(story);
                     });
                     $scope.$apply();
                 }

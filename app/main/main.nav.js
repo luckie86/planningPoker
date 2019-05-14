@@ -46,16 +46,12 @@
         var mySessions = {
             name: "mySessions",
             url: "/mysessions",
-            component: "mySessionsComponent",
-            resolve: {
-                mySessions: function (userService) {
-                    if (userService.getUser() === "") {
-                        return null;
-                    } else {
-                        return userService.getUser();
-                    }
-                }
-            }
+            component: "mySessionsComponent"
+            // resolve: {
+            //     sessionId: function ($transition$) {
+            //         return $transition$.params().sessionId;
+            //     }
+            // }
         }
 
         var noSessions = {

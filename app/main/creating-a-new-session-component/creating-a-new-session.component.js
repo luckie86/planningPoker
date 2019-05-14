@@ -32,11 +32,17 @@
 
         $ctrl.addUserStory = addUserStory;
 
+        $ctrl.arrayOfStories = [];
+        
+        $ctrl.dynamicStories = [];
+
         $ctrl.arrayOfSessions = [];
 
         $ctrl.deleteUserStory = deleteUserStory;
 
         $ctrl.startSession = startSession;
+
+        $ctrl.addUserStoryContent = addUserStoryContent;
         
         //////////////////////////////
         
@@ -62,8 +68,9 @@
                 userName: $ctrl.userName, 
                 sessionName: $ctrl.sessionName, 
                 selected: $ctrl.selected.label,
-                status : "Draft" 
+                status : "Draft",
             });
+
         }
 
         function deleteUserStory (id) {
@@ -71,19 +78,33 @@
         }
     
         function startSession () {
-
+            var randomNumber = Math.floor(Math.random()*100);
             webSocketService.send(
                 { command: "create_session", 
                 payload: {
+                    sessionId: randomNumber,
                     userName: $ctrl.userName, 
                     sessionName: $ctrl.sessionName, 
                     selected: $ctrl.selected.label,
                     status : "Draft",
-                    stories: $ctrl.arrayOfSessions
+                    stories: $ctrl.arrayOfStories
                 }
             });
             $state.go("mySessions");
         }
+
+
+        function addUserStoryContent (index) {
+            
+            $ctrl.arrayOfStories.push({
+                userName: $ctrl.userName, 
+                sessionName: $ctrl.sessionName, 
+                selected: $ctrl.selected.label,
+                status : "Draft",
+                storyContent: $ctrl.dynamicStories
+            });
+        }
+
 
      }
 

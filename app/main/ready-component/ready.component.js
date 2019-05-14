@@ -12,7 +12,7 @@
         .module('MainModule')
         .component('readyComponent', readyComponent);
 
-    function readyController (webSocketService, $scope) {
+    function readyController (webSocketService, userService ,$scope) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
@@ -20,6 +20,8 @@
         $ctrl.listOfUsers = [];
 
         $ctrl.startSession = startSession;
+
+        $ctrl.isAdmin = userService.isAdmin();
         
         //////////////////////////////
         

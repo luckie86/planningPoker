@@ -29,7 +29,7 @@
                 class="btn"
                 ng-click="$ctrl.addUserStory()"
             >
-                + Add <span ng-if="$ctrl.arrayOfSessions.length>=1">another </span> user story
+                + Add <span ng-if="$ctrl.arrayOfStories.length>=1">another </span> user story
             </button>
         </div>
     </form>
@@ -39,8 +39,9 @@
         <div class="row">
             <div class="col-10">
                 <p>{{value.sessionName}}</p>
-                <textarea class="col-10">
+                <textarea class="col-10" ng-model="$ctrl.dynamicStories[$index]">
                 </textarea>
+                <button class="btn" ng-click="$ctrl.addUserStoryContent($index)">+ Add user story content</button>
             </div>
             <div class="col-2">
                 <button type="button" class="close" ng-click="$ctrl.deleteUserStory(key)">
@@ -51,7 +52,7 @@
     </div>
 
     
-    <div ng-if="$ctrl.arrayOfSessions.length>=1">
+    <div ng-if="$ctrl.arrayOfStories.length>=1">
 
         <hr>
 
