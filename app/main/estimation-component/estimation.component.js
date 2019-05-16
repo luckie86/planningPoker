@@ -12,19 +12,18 @@
         .module('MainModule')
         .component('estimationComponent', estimationComponent);
 
-    function estimationController (sessionService, $scope) {
+    function estimationController (storiesService, $scope) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
 
-        $ctrl.storiesToEstimate = [];
+        $ctrl.storiesToEstimate;
 
         //////////////////////////////
         
         function $onInit () {
 
-            $ctrl.storiesToEstimate = sessionService.getSessions();
-            console.log("stories to estimate", $ctrl.storiesToEstimate);
+            $ctrl.storiesToEstimate = storiesService.getStories();
 
         }
 

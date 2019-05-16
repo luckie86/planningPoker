@@ -12,7 +12,7 @@
         .module('MainModule')
         .component('creatingANewSessionComponent', creatingANewSessionComponent);
 
-    function creatingANewSessionController (webSocketService, userService, sessionService, $state) {
+    function creatingANewSessionController (webSocketService, userService, sessionService, storiesService, $state) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
@@ -92,6 +92,7 @@
             });
             $state.go("mySessions");
             sessionService.setSessions();
+            storiesService.setStories();
         }
 
 
