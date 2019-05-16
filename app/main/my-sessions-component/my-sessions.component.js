@@ -17,20 +17,18 @@
 
         $ctrl.$onInit = $onInit;
 
-        $ctrl.arrayOfStories = [];
+        $ctrl.arrayOfSessions = [];
 
         //////////////////////////////
         
         function $onInit () {
-            
+
             webSocketService.getSocket().addEventListener('message', function (event) {
                 var parsed = JSON.parse(event.data);   
                 if(parsed.command === 'create_session') {
-                    parsed.payload.stories.forEach(story => {
-                        $ctrl.arrayOfStories.push(story);
-                    });
-                    $scope.$apply();
+                    $ctrl.arrayOfSessions.push(parsed.payload);
                 }
+                $scope.$apply();
             })
 
         }

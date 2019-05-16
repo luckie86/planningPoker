@@ -26,35 +26,15 @@
 
     <hr>
 
-    <div class="card">
+    <div class="card" ng-repeat="story in $ctrl.storiesToEstimate">
         <div class="row">
             <div class="col-10">
                 <p> 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Veritatis nihil nam illo voluptatibus! Debitis minus, 
-                    quis officiis repellat earum nemo exercitationem officia error 
-                    quod quisquam dignissimos deserunt praesentium possimus tempore
+                    {{ story.stories[0].storyContent }}
                 </p>
             </div>
             <div class="col-2">
                 <i class="fas fa-spinner fa-2x"></i>
-            </div> 
-        </div>   
-    </div>
-
-    <div class="card">
-        <div class="row">
-            <div class="col-10">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Veritatis nihil nam illo voluptatibus! Debitis minus, 
-                    quis officiis repellat earum nemo exercitationem officia error 
-                    quod quisquam dignissimos deserunt praesentium possimus tempore
-                </p>
-            </div>
-            <div class="col-2">
-                    <h5>XL</h5>
-                </button>
             </div> 
         </div>   
     </div>

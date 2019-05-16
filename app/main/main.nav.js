@@ -27,8 +27,13 @@
 
         var estimation = {
             name: "estimation",
-            url: "/estimation",
-            component: "estimationComponent"
+            url: "/estimation/{sessionId}",
+            component: "estimationComponent",
+            resolve: {
+                sessionId: function ($transition$) {
+                    return $transition$.params().sessionId;
+                }
+            }
         }
 
         var finishedSession = {
@@ -47,11 +52,6 @@
             name: "mySessions",
             url: "/mysessions",
             component: "mySessionsComponent"
-            // resolve: {
-            //     sessionId: function ($transition$) {
-            //         return $transition$.params().sessionId;
-            //     }
-            // }
         }
 
         var noSessions = {

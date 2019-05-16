@@ -12,16 +12,20 @@
         .module('MainModule')
         .component('estimationComponent', estimationComponent);
 
-    function estimationController () {
+    function estimationController (sessionService, $scope) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
 
-        
+        $ctrl.storiesToEstimate = [];
+
         //////////////////////////////
         
         function $onInit () {
-            
+
+            $ctrl.storiesToEstimate = sessionService.getSessions();
+            console.log("stories to estimate", $ctrl.storiesToEstimate);
+
         }
 
     }

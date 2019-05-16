@@ -21,7 +21,7 @@
 
         $ctrl.startSession = startSession;
 
-        $ctrl.isAdmin = userService.isAdmin();
+        $ctrl.isAdmin = false;
         
         //////////////////////////////
         
@@ -29,12 +29,13 @@
             
             webSocketService.getSocket().addEventListener('message', function (event) {
                 var parsed = JSON.parse(event.data);
-                console.log(parsed);
-                if (parsed.command === "login") {
+                if (parsed.command === "login" && userService.getUser() === parsed.payload.userName) {
                     if(parsed.payload.isAdmin) {
                         $ctrl.listOfUsers.push({userName: parsed.payload.userName, isAdmin: true});
+                        $ctrl.isAdmin = true;
                     } else {
                         $ctrl.listOfUsers.push({userName: parsed.payload.userName, isAdmin: false});
+                        $ctrl.isAdmin = false;
                     }
                     $scope.$apply();
                 }
@@ -42,6 +43,8 @@
         }
 
         function startSession () {
+
+            
 
         }
 
