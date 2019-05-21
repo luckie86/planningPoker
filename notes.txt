@@ -74,3 +74,27 @@ if moderator then gre v my session, if user then available session
 naredi textarea delujoč torej da ga pushne v object in shrani ter disabla textarea
 status delujoč : torej draft...
 session id random number
+
+repeat stories;
+
+Ready componenta:
+1. V ready componenti v initu lobbyu emitnem join_session event ki vsebuje podatke o user, session
+
+payload {
+    user: user,
+    session: session,
+}
+
+2. v main.nav.js dodam resolve znotraj ready routa ki vsebuje id, in ga tako uporabim v ready componenti.
+
+3. v ready componenti poslušam za join_session in dobim ven kdo je v lobiju. ter prikažem v html
+
+4. ko moderator stisne start odda session_started in preusmeri ostale userje. $state go ()
+
+estimations component:
+
+1.  preberem id sessiona in z pomočjo session servica dobim podatke o seji in jih prikažem
+
+2. dodam inpute, ki prikazujejo dinamično kaj je user izbral in sprožim websoket kaj je bilo izbrano.
+
+TODO:

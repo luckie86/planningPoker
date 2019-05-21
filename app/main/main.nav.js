@@ -62,8 +62,13 @@
 
         var ready = {
             name: "ready",
-            url: "/ready",
-            component: "readyComponent"
+            url: "/ready/{sessionId}",
+            component: "readyComponent",
+            resolve: {
+                sessionId: function ($transition$) {
+                    return $transition$.params().sessionId;
+                }
+            }
         }
 
         var waiting = {

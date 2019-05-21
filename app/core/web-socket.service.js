@@ -23,6 +23,8 @@
                     case "create_session":
                     case "create_a_session":
                     case "creating_session":
+                    case "join_session":
+                    case "emitt_stories":
                         webSocket.send(json);
                         break;
                     case "logout":

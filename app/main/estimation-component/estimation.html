@@ -7,24 +7,28 @@
         <h4 class="list-inline-item"> T-Shirt</h4> 
     </div>
 
-    <hr>
+    <div ng-if="$ctrl.isAdmin">
+    
+        <hr>
 
-    <h4 class="text-center">Participants are still estimating...</h4>
+        <h4 class="text-center">Participants are still estimating...</h4>
 
-    <p class="text-center">
-        You can finish the session with current results or abort it.
-        Aborting will cause all the estimations to be discarded.
-    </p>
+        <p class="text-center">
+            You can finish the session with current results or abort it.
+            Aborting will cause all the estimations to be discarded.
+        </p>
 
-    <div class="list-inline text-center">
-        <a href="#" class="btn btn-primary list-inline-item">Finish</a>
+        <div class="list-inline text-center">
+            <a href="#" class="btn btn-primary list-inline-item">Finish</a>
 
-        <p class="list-inline-item">or</p>
+            <p class="list-inline-item">or</p>
 
-        <a href="#" class="btn btn-primary list-inline-item">Abort</a>
+            <a href="#" class="btn btn-primary list-inline-item">Abort</a>
+        </div>
+
+        <hr>
+
     </div>
-
-    <hr>
 
     <div class="card" ng-repeat="story in $ctrl.storiesToEstimate">
         <div class="row">

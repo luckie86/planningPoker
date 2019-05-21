@@ -10,7 +10,13 @@
         </thead>
         <tbody>
           <tr ng-repeat="session in $ctrl.arrayOfSessions">
-            <td><a ui-sref="estimation({sessionId: session.sessionId})">{{session.sessionName}}</a></td>
+            <td>
+              <a 
+                ui-sref="ready({sessionId: session.sessionId})"
+                ng-click="$ctrl.joinSession()"
+              >
+              {{session.sessionName}}
+              </a></td>
             <td>{{session.selected}}</td>
             <td><span>{{session.status}}</span></td>
           </tr>

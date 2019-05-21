@@ -91,7 +91,6 @@
                 }
             });
             $state.go("mySessions");
-            sessionService.setSessions();
             storiesService.setStories();
         }
 

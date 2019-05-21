@@ -19,6 +19,8 @@
 
         $ctrl.arrayOfSessions = [];
 
+        $ctrl.joinSession = joinSession;
+
         //////////////////////////////
         
         function $onInit () {
@@ -30,7 +32,11 @@
                 }
                 $scope.$apply();
             })
+        }
 
+        function joinSession() {
+            
+            webSocketService.send({ command: "join_session", payload: {arrayOfSessions: $ctrl.arrayOfSessions}});
         }
 
     }

@@ -9,12 +9,12 @@
             
             var currentUser = "";
 
-            function getUser () {
-                return currentUser;
-            }
-
             function setUser (user) {
                 currentUser = user;
+            }
+
+            function getUser () {
+                return currentUser;
             }
 
             function isAdmin (user) {
@@ -25,10 +25,12 @@
                 }
             }
 
+            
+
             return {
                 isAdmin: isAdmin,
-                getUser: getUser,
-                setUser: setUser
+                setUser: setUser,
+                getUser: getUser
             }
 
         }
