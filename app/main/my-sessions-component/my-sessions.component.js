@@ -12,7 +12,7 @@
         .module('MainModule')
         .component('mySessionsComponent', mySessionsComponent);
 
-    function mySessionsController(webSocketService, $scope) {
+    function mySessionsController(webSocketService, sessionService, $scope) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
@@ -24,14 +24,9 @@
         //////////////////////////////
         
         function $onInit () {
-
-            webSocketService.getSocket().addEventListener('message', function (event) {
-                var parsed = JSON.parse(event.data);   
-                if(parsed.command === 'create_session') {
-                    $ctrl.arrayOfSessions.push(parsed.payload);
-                }
-                $scope.$apply();
-            })
+            
+            $ctrl.arrayOfSessions = sessionService.getSessions();
+            console.log($ctrl.arrayOfSessions);
         }
 
         function joinSession() {

@@ -9,7 +9,6 @@
             
             var arrayOfStories = [];
 
-            function setStories () {
                 webSocketService.getSocket().addEventListener('message', function (event) {
                     var parsed = JSON.parse(event.data);   
                     if(parsed.command === 'create_session') {
@@ -17,14 +16,12 @@
                         return arrayOfStories;
                     }
                 })
-            }
 
             function getStories () {
                 return arrayOfStories;
             }
 
             return {
-                setStories: setStories,
                 getStories: getStories
             }
 

@@ -98,3 +98,13 @@ estimations component:
 2. dodam inpute, ki prikazujejo dinamično kaj je user izbral in sprožim websoket kaj je bilo izbrano.
 
 TODO:
+Ko bo končano, naredi z promisi
+
+1. ko admin klikne start emitam estimation_started
+2. event listener estimation_started (za cliente)
+3. Story + dropdown () ng if (dropdown
+4. ko user klikne vote se emitne izbrana vrednost in pošlje moderatorju. (send command: storie_voted) GUMB pri userju
+(finish_session)
+if admin add listener
+
+TODO naslednjič: ko oddajo glasove moderator ve za glasove (result service)

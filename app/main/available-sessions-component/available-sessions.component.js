@@ -12,7 +12,7 @@
         .module('MainModule')
         .component('availableSessionsComponent', availableSessionsComponent);
 
-    function availableSessionsController (sessionService, webSocketService) {
+    function availableSessionsController (sessionService, $scope) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
@@ -22,7 +22,7 @@
         //////////////////////////////
         
         function $onInit () {
-
+            
             $ctrl.arrayOfSessions = sessionService.getSessions();
         }
 

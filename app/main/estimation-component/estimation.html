@@ -2,9 +2,9 @@
 
 <div class="container">
     
-    <div class="list-inline text-center">
-        <h4 class="list-inline-item"> Cool new session for epic feature</h4>
-        <h4 class="list-inline-item"> T-Shirt</h4> 
+    <div class="list-inline text-center" ng-repeat="session in $ctrl.arrayOfSessions">
+        <h4 class="list-inline-item">{{session.sessionName}}</h4>
+        <h4 class="list-inline-item"> {{session.selected}}</h4> 
     </div>
 
     <div ng-if="$ctrl.isAdmin">
@@ -38,11 +38,54 @@
                 </p>
             </div>
             <div class="col-2">
-                <i class="fas fa-spinner fa-2x"></i>
-            </div> 
-        </div>   
+                <div class="dropdown">
+                    <button 
+                        class="btn dropdown-toggle" 
+                        type="button" 
+                        id="dropdownMenuButton" 
+                        data-toggle="dropdown" 
+                        aria-haspopup="true" 
+                        aria-expanded="false">
+                        Select Scale
+                    </button>
+                    <div class="dropdown-menu" 
+                        aria-labelledby="dropdownMenuButton" 
+                        ng-if="$ctrl.arrayOfSessions[0].selected === 'Fibonacci'"
+                    >
+                        <a class="dropdown-item" href="#">0</a>
+                        <a class="dropdown-item" href="#">1</a>
+                        <a class="dropdown-item" href="#">2</a>
+                        <a class="dropdown-item" href="#">3</a>
+                        <a class="dropdown-item" href="#">5</a>
+                        <a class="dropdown-item" href="#">8</a>
+                        <a class="dropdown-item" href="#">13</a>
+                        <a class="dropdown-item" href="#">20</a>
+                        <a class="dropdown-item" href="#">40</a>
+                        <a class="dropdown-item" href="#">100</a>
+                    </div>
+                    <div class="dropdown-menu" 
+                        aria-labelledby="dropdownMenuButton" 
+                        ng-if="$ctrl.arrayOfSessions[0].selected === 'T-Shirt'"
+                    >
+                        <a class="dropdown-item" href="#">XS</a>
+                        <a class="dropdown-item" href="#">S</a>
+                        <a class="dropdown-item" href="#">M</a>
+                        <a class="dropdown-item" href="#">L</a>
+                        <a class="dropdown-item" href="#">XL</a>
+                        <a class="dropdown-item" href="#">XXL</a>
+                    </div>
+                    <div class="dropdown-menu" 
+                        aria-labelledby="dropdownMenuButton" 
+                        ng-if="$ctrl.arrayOfSessions[0].selected === 'Gamer'"
+                    >
+                        <a class="dropdown-item" href="#">Easy</a>
+                        <a class="dropdown-item" href="#">Medium</a>
+                        <a class="dropdown-item" href="#">Hard</a>
+                    </div>
+                </div> 
+            </div>   
+        </div>
     </div>
-
 </div>
 
 <footer-component></footer-component>

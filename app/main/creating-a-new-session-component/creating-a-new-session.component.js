@@ -90,8 +90,9 @@
                     stories: $ctrl.arrayOfStories
                 }
             });
-            $state.go("mySessions");
-            storiesService.setStories();
+            setTimeout(function(){
+                $state.go("mySessions");
+            }, 200);
         }
 
 
