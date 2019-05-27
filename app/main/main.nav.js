@@ -38,8 +38,13 @@
 
         var finishedSession = {
             name: "finishedSession",
-            url: "/finished-session",
-            component: "finishedSessionComponent"
+            url: "/finished-session/{sessionId}",
+            component: "finishedSessionComponent",
+            resolve: {
+                sessionId: function ($transition$) {
+                    return $transition$.params().sessionId;
+                }
+            }
         }
 
         var main = {

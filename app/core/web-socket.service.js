@@ -25,6 +25,7 @@
                     case "creating_session":
                     case "join_session":
                     case "emitt_stories":
+                    case "storie_voted":
                         webSocket.send(json);
                         break;
                     case "logout":

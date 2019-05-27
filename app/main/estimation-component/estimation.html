@@ -19,18 +19,20 @@
         </p>
 
         <div class="list-inline text-center">
-            <a href="#" class="btn btn-primary list-inline-item">Finish</a>
+            <a ui-sref="finishedSession({sessionId: $ctrl.arrayOfSessions[0].sessionId})" 
+            class="btn btn-primary list-inline-item">Finish</a>
 
             <p class="list-inline-item">or</p>
 
-            <a href="#" class="btn btn-primary list-inline-item">Abort</a>
+            <a ui-sref="creatingANewSession" 
+            class="btn btn-primary list-inline-item">Abort</a>
         </div>
 
         <hr>
 
     </div>
 
-    <div class="card" ng-repeat="story in $ctrl.storiesToEstimate">
+    <div class="card" ng-repeat="story in $ctrl.storiesToEstimate" ng-if="!$ctrl.isAdmin">
         <div class="row">
             <div class="col-10">
                 <p> 
@@ -38,53 +40,71 @@
                 </p>
             </div>
             <div class="col-2">
-                <div class="dropdown">
-                    <button 
-                        class="btn dropdown-toggle" 
-                        type="button" 
-                        id="dropdownMenuButton" 
-                        data-toggle="dropdown" 
-                        aria-haspopup="true" 
-                        aria-expanded="false">
+                <div 
+                    uib-dropdown
+                    dropdown-append-to-body
+                >
+                    <a 
+                        class="btn"
+                        uib-dropdown-toggle
+                        id="dynamic-dropdown"
+                        href="#"     
+                    >
                         Select Scale
-                    </button>
-                    <div class="dropdown-menu" 
-                        aria-labelledby="dropdownMenuButton" 
+                    </a>
+                    <ul 
                         ng-if="$ctrl.arrayOfSessions[0].selected === 'Fibonacci'"
+                        uib-dropdown-menu 
+                        aria-labelledby="dynamic-dropdown"
+                        class="dropdown-menu"
+                        role="menu"
                     >
-                        <a class="dropdown-item" href="#">0</a>
-                        <a class="dropdown-item" href="#">1</a>
-                        <a class="dropdown-item" href="#">2</a>
-                        <a class="dropdown-item" href="#">3</a>
-                        <a class="dropdown-item" href="#">5</a>
-                        <a class="dropdown-item" href="#">8</a>
-                        <a class="dropdown-item" href="#">13</a>
-                        <a class="dropdown-item" href="#">20</a>
-                        <a class="dropdown-item" href="#">40</a>
-                        <a class="dropdown-item" href="#">100</a>
-                    </div>
-                    <div class="dropdown-menu" 
-                        aria-labelledby="dropdownMenuButton" 
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(0)">0</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(1)">1</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(2)">2</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(3)">3</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(5)">5</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(8)">8</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(13)">13</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(20)">20</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(40)">40</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue(100)">100</a>
+                    </ul>
+                    <ul
                         ng-if="$ctrl.arrayOfSessions[0].selected === 'T-Shirt'"
+                        uib-dropdown-menu 
+                        aria-labelledby="dynamic-dropdown"
+                        role="menu"
                     >
-                        <a class="dropdown-item" href="#">XS</a>
-                        <a class="dropdown-item" href="#">S</a>
-                        <a class="dropdown-item" href="#">M</a>
-                        <a class="dropdown-item" href="#">L</a>
-                        <a class="dropdown-item" href="#">XL</a>
-                        <a class="dropdown-item" href="#">XXL</a>
-                    </div>
-                    <div class="dropdown-menu" 
-                        aria-labelledby="dropdownMenuButton" 
+                        <li role="menuitem" ng-click="$ctrl.selectedValue('XS')">XS</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue('S')">S</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue('M')">M</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue('L')">L</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue('XL')">XL</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue('XXL')">XXL</li>
+                    </ul>
+                    <ul
                         ng-if="$ctrl.arrayOfSessions[0].selected === 'Gamer'"
+                        uib-dropdown-menu
+                        aria-labelledby="dynamic-dropdown"
+                        role="menu"
                     >
-                        <a class="dropdown-item" href="#">Easy</a>
-                        <a class="dropdown-item" href="#">Medium</a>
-                        <a class="dropdown-item" href="#">Hard</a>
-                    </div>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue('Easy')">Easy</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue('Medium')">Medium</li>
+                        <li role="menuitem" ng-click="$ctrl.selectedValue('Hard')">Hard</li>
+                    </ul>
                 </div> 
             </div>   
         </div>
+    </div>
+    <div class="text-center">
+        <a
+            ng-if="!$ctrl.isAdmin" 
+            class="btn btn-primary"
+            ui-sref="finishedSession({sessionId: $ctrl.arrayOfSessions[0].sessionId})"
+        >
+            Finish Voting
+        </a>
     </div>
 </div>
 

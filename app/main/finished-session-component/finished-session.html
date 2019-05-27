@@ -1,7 +1,8 @@
 <navbar-component></navbar-component>
 
 <div class="container">
-    <form>
+    
+    <form ng-if="$ctrl.isAdmin">
         <div class="form-row">
             <div class="col">
                 <input type="text" class="form-control" placeholder="My session name...">
@@ -18,82 +19,59 @@
         </div>
     </form>
 
-    <hr>
+    <div ng-if="$ctrl.isAdmin">
 
-    <h4 class="text-center">All estimations made. Well done!</h4>
+        <hr>
+       
+            <h4 class="text-center">All estimations made. Well done!</h4>
 
-    <p class="text-center">
-        All participants have estimated all user stories. <br>
-        You can run the session again and apply new estimations to the current medians <br>
-        or discard the current estimations and start anew.
-    </p>
+            <p class="text-center">
+                All participants have estimated all user stories. <br>
+                You can run the session again and apply new estimations to the current medians <br>
+                or discard the current estimations and start anew.
+            </p>
 
-    <div class="list-inline text-center">
-        <a 
-            href="#" 
-            class="list-inline-item"
-        >
-            Run again
-        </a> 
-        <p class="list-inline-item">or</p>
-        <a 
-            href="#"
-            class="list-inline-item"
-        >
-            Run again fresh
-        </a>
+            <div class="list-inline text-center">
+                <a 
+                    href="#" 
+                    class="list-inline-item"
+                >
+                    Run again
+                </a> 
+                <p class="list-inline-item">or</p>
+                <a 
+                    href="#"
+                    class="list-inline-item"
+                >
+                    Run again fresh
+                </a>
+            </div>
+        <hr>
+
+        <a href="#">+ Add another story</a>    
+
     </div>
-    <hr>
+   
 
-    <a href="#">+ Add another story</a>
+    
 
-    <div class="card">
+    <div 
+        class="card"
+        ng-repeat="story in $ctrl.estimatedStories"
+    >
         <div class="row">
             <div class="col-10">
                 <p> 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Veritatis nihil nam illo voluptatibus! Debitis minus, 
-                    quis officiis repellat earum nemo exercitationem officia error 
-                    quod quisquam dignissimos deserunt praesentium possimus tempore
+                    {{ story.storyContent[$index] }}
                 </p>
             </div>
             <div class="col-2">
-                <h4>XL</h4>
+                <h4>{{ $ctrl.votes[$index].votes }}</h4>
             </div> 
         </div>   
     </div>
 
-    <div class="card">
-        <div class="row">
-            <div class="col-10">
-                <p> 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Veritatis nihil nam illo voluptatibus! Debitis minus, 
-                    quis officiis repellat earum nemo exercitationem officia error 
-                    quod quisquam dignissimos deserunt praesentium possimus tempore
-                </p>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-question fa-2x"></i>
-            </div> 
-        </div>   
-    </div>
 
-    <div class="card">
-        <div class="row">
-            <div class="col-10">
-                <p> 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Veritatis nihil nam illo voluptatibus! Debitis minus, 
-                    quis officiis repellat earum nemo exercitationem officia error 
-                    quod quisquam dignissimos deserunt praesentium possimus tempore
-                </p>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-exclamation-triangle fa-2x"></i>
-            </div> 
-        </div>   
-    </div>
 
 </div>
 

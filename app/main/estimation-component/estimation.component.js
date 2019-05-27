@@ -12,7 +12,7 @@
         .module('MainModule')
         .component('estimationComponent', estimationComponent);
 
-    function estimationController (storiesService, userService, sessionService, $scope) {
+    function estimationController (storiesService, userService, sessionService, webSocketService, $scope) {
         var $ctrl = this;
 
         $ctrl.$onInit = $onInit;
@@ -22,6 +22,10 @@
         $ctrl.isAdmin = false;
 
         $ctrl.arrayOfSessions = [];
+
+        $ctrl.selectedValue = selectedValue;
+
+        $ctrl.userInput = [];
 
         //////////////////////////////
         
@@ -38,6 +42,13 @@
 
             $ctrl.arrayOfSessions = sessionService.getSessions();
 
+        }
+
+        function selectedValue(value) {
+            
+            $ctrl.userInput.push({ user: userService.getUser(), votes: value});
+            console.log($ctrl.userInput);
+            webSocketService.send({ command: "storie_voted", payload: { userName : userService.getUser(), isAdmin: userService.isAdmin(userService.getUser()), votes: $ctrl.userInput }});
         }
 
     }
